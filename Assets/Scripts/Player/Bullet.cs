@@ -36,8 +36,9 @@ public class Bullet : MonoBehaviour
                 GameManager.Instance.EnemyDestroyed();            }
             // Destroy the projectile
 
-            Destroy(gameObject);
+            
             
         }
+        Destroy(gameObject);
     }
 }

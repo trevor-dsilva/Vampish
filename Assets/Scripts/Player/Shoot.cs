@@ -66,7 +66,9 @@ public class Shoot : MonoBehaviour
         Vector3 futurePosition = PredictFuturePosition(target.gameObject);
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         Vector3 direction = (futurePosition - bulletSpawnPoint.position).normalized;
-        bullet.GetComponent<Rigidbody>().linearVelocity = direction * bulletSpeed;
+        Vector3 velocity = direction * bulletSpeed;
+        velocity.y = 0f; //doesnt shoot up 
+        bullet.GetComponent<Rigidbody>().linearVelocity = velocity;
     }
 
 
@@ -80,8 +82,12 @@ public class Shoot : MonoBehaviour
         float distance = Vector3.Distance(bulletSpawnPoint.position, targetPosition);
         float timeToReachTarget = distance / bulletSpeed;
 
-        // Predict future position based on current velocity
-        Vector3 futurePosition = targetPosition + targetVelocity * timeToReachTarget;
+        // First step of Euler integration
+        Vector3 firstStepPosition = targetPosition + targetVelocity * (timeToReachTarget / 2);
+
+        // Second step of Euler integration
+        Vector3 futurePosition = firstStepPosition + targetVelocity * (timeToReachTarget / 2);
+
         return futurePosition;
     }
 
