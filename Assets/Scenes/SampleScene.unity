@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 49627552}
   - component: {fileID: 49627556}
   - component: {fileID: 49627557}
-  - component: {fileID: 49627558}
   - component: {fileID: 49627559}
+  - component: {fileID: 49627560}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -279,23 +279,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &49627558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49627551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca3d49a3e57e2c4eb0555a9066c9ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8503911181508615194, guid: 6e55c43a04c4ff145bbfc8c30c28d2a4, type: 3}
-  bulletSpawnPoint: {fileID: 49627555}
-  bulletSpeed: 20
-  shootCooldown: 1
-  cameraTransform: {fileID: 1038686876}
 --- !u!114 &49627559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +295,24 @@ MonoBehaviour:
   numberOfSpawners: 5
   radius: 40
   rotationSpeed: 50
+--- !u!114 &49627560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49627551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca3d49a3e57e2c4eb0555a9066c9ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8503911181508615194, guid: 6e55c43a04c4ff145bbfc8c30c28d2a4, type: 3}
+  bulletSpawnPoint: {fileID: 49627555}
+  bulletSpeed: 20
+  playerCamera: {fileID: 1638796709}
+  shootCooldown: 1
+  spawnDistance: 1
 --- !u!1 &71961238
 GameObject:
   m_ObjectHideFlags: 0
