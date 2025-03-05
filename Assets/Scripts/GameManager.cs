@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private int currentEnemyCount = 0;
 
     public int playerHealth = 100;
+    public int playerXP = 0;
 
 
     private void Awake()

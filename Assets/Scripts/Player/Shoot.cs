@@ -1,10 +1,9 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
-public class Shoot : MonoBehaviour
+public class NewShoot : MonoBehaviour
 {
     public GameObject bulletPrefab; // Prefab of the bullet
-    public Transform bulletSpawnPoint; // Where the bullet will be spawned
     public float bulletSpeed = 20f; // Speed of the bullet
     public CinemachineCamera playerCamera; // Reference to the player's Cinemachine camera
     public float shootCooldown = 1f; // Minimum time between shots
@@ -18,19 +17,32 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time - lastShootTime >= shootCooldown) // Check for left mouse button click and cooldown
+        if ((Input.GetMouseButtonDown(0)|| Input.GetMouseButton(0)) && Time.time - lastShootTime >= shootCooldown) // Check for left mouse button click and cooldown
         {
-            ShootClick();
+            FireBullet();
             lastShootTime = Time.time; // Update the last shoot time
         }
     }
 
-    private void ShootClick()
-    {  
+    private void FireBullet()
+    {
+
         // Calculate the spawn position in front of the player, in line with the camera
         Vector3 spawnPosition = transform.position + playerCamera.transform.forward * spawnDistance;
+
+        // Get the y position of the spawn point
+        float lockedYPosition = transform.position.y;
+
+        // Lock the y position to the spawn point's y value
+        spawnPosition.y = lockedYPosition;
+
         GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
-        Vector3 direction = playerCamera.transform.forward; // Get the direction the camera is looking
+
+        // Get the direction the camera is looking, but lock the y component
+        Vector3 direction = playerCamera.transform.forward;
+        direction.y = 0; // Lock the y component to 0
+        direction.Normalize(); // Normalize to maintain the correct direction
+
         bullet.GetComponent<Rigidbody>().linearVelocity = direction * bulletSpeed;
     }
 }

@@ -72,6 +72,14 @@ public class Player : MonoBehaviour
         {
             ApplyDamage();
         }
+
+        if(collision.gameObject.CompareTag("XP"))
+        {
+            Destroy(collision.gameObject);
+            GameManager.Instance.playerXP += 10;
+
+
+        }
     }
     private void ApplyDamage()
     {
