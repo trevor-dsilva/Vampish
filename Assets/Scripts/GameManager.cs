@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int playerHealth = 100;
     public int playerXP = 0;
+    public int experienceToNextLevel = 10;
+    public int playerLevel = 1;
 
 
     private void Awake()
@@ -22,6 +24,28 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void CheckLevelUp()
+    {
+        while (playerXP >= experienceToNextLevel)
+        {
+            playerXP -= experienceToNextLevel; // Deduct the experience required for the current level
+            playerLevel++;
+            experienceToNextLevel = CalculateExperienceForNextLevel(playerLevel); // Calculate the experience required for the next level
+            OnLevelUp(); // Handle level up actions
+        }
+    }
+
+    private int CalculateExperienceForNextLevel(int level)
+    {
+        // Example formula: Experience required increases by 50% each level
+        return Mathf.FloorToInt(experienceToNextLevel * 1.5f);
+    }
+
+    private void OnLevelUp()
+    {
+
     }
 
     public bool CanSpawnEnemy()

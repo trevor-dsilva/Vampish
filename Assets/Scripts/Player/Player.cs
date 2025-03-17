@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameManager.Instance.playerXP += 10;
-
+            GameManager.Instance.CheckLevelUp();
 
         }
     }

@@ -5,7 +5,10 @@ using UnityEngine.UI;
 public class XPUI : MonoBehaviour
 {
     public TextMeshProUGUI XP;
-    
+    public TextMeshProUGUI lvl;
+    public TextMeshProUGUI nextlvl;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,8 +20,9 @@ public class XPUI : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            XP.text = "EXP: " + GameManager.Instance.playerXP;
-          
+            lvl.text = "Level: " + GameManager.Instance.playerLevel;
+            nextlvl.text = "Next level: " + GameManager.Instance.experienceToNextLevel;
+            XP.text = "Current XP: " + GameManager.Instance.playerXP;
         }
     }
 }

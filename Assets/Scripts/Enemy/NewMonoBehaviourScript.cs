@@ -1,4 +1,4 @@
-using UnityEngine;
+sing UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
