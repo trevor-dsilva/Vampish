@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4028707873085672361}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8615,7 +8615,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8503911181508615194}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8671,4 +8671,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   maxDistance: 50
-  xpOrb: {fileID: 4879849328821948709, guid: ea76f81e2460a3e458a76af5208b1a5f, type: 3}

@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
 
     public int maxEnemies = 10; // Maximum number of enemies allowed
     private int currentEnemyCount = 0;
-
-    public int playerHealth = 100;
+    //stats level
     public int playerXP = 0;
     public int experienceToNextLevel = 10;
     public int playerLevel = 1;
-
+    //stats per level
+    public int playerHealth = 100;
+    public int playerPower = 5; 
 
     private void Awake()
     {
@@ -45,6 +46,10 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelUp()
     {
+        playerHealth += 10;
+        playerPower += 1;
+        maxEnemies++;
+
 
     }
 
