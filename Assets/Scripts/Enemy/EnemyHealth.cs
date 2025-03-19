@@ -11,6 +11,11 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
+   public void TakeLightningDamage(int damage)
+    {
+        health -= damage;
+
+    }
 
     public void TakeBulletDamage()
     {

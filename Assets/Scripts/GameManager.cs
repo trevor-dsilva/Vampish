@@ -10,9 +10,15 @@ public class GameManager : MonoBehaviour
     public int playerXP = 0;
     public int experienceToNextLevel = 10;
     public int playerLevel = 1;
+    
     //stats per level
     public int playerHealth = 100;
-    public int playerPower = 5; 
+    public int playerPower = 5;
+    public float shotCooldown = 1f;
+    public float detectionInterval= 2f;
+    public float detectionRadius = 10f;
+
+
 
     private void Awake()
     {
@@ -49,8 +55,10 @@ public class GameManager : MonoBehaviour
         playerHealth += 10;
         playerPower += 1;
         maxEnemies++;
-
-
+        shotCooldown -= .01f;
+        detectionRadius += .5f;
+        detectionInterval -= .02f; 
+        
     }
 
     public bool CanSpawnEnemy()

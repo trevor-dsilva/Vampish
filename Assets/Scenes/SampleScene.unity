@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 49627557}
   - component: {fileID: 49627559}
   - component: {fileID: 49627560}
+  - component: {fileID: 49627561}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -312,6 +313,24 @@ MonoBehaviour:
   playerCamera: {fileID: 1638796709}
   shootCooldown: 1
   spawnDistance: 1
+--- !u!114 &49627561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49627551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba36c7f41c004149a33653401794eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  detectionRadius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  detectionInterval: 2
 --- !u!1 &71961238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,6 +4317,9 @@ MonoBehaviour:
   playerLevel: 1
   playerHealth: 100
   playerPower: 5
+  shotCooldown: 1
+  detectionInterval: 2
+  detectionRadius: 10
 --- !u!4 &1756791099
 Transform:
   m_ObjectHideFlags: 0

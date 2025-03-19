@@ -6,17 +6,19 @@ public class NewShoot : MonoBehaviour
     public GameObject bulletPrefab; // Prefab of the bullet
     public float bulletSpeed = 20f; // Speed of the bullet
     public CinemachineCamera playerCamera; // Reference to the player's Cinemachine camera
-    public float shootCooldown = 1f; // Minimum time between shots
+    public float shootCooldown; // Minimum time between shots
     private float lastShootTime;
     public float spawnDistance = 1f; // Distance in front of the player to spawn the bullet
 
     private void Start()
     {
+        shootCooldown = GameManager.Instance.shotCooldown;
         lastShootTime = -shootCooldown; // Initialize to allow immediate shooting
     }
 
     private void Update()
     {
+        shootCooldown = GameManager.Instance.shotCooldown;
         if ((Input.GetMouseButtonDown(0)|| Input.GetMouseButton(0)) && Time.time - lastShootTime >= shootCooldown) // Check for left mouse button click and cooldown
         {
             FireBullet();
