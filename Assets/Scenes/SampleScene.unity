@@ -331,6 +331,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   detectionInterval: 2
+  lightningPrefab: {fileID: 7751181824430455497, guid: a883b74019d08ad4a92c5ec1164ee52c, type: 3}
 --- !u!1 &71961238
 GameObject:
   m_ObjectHideFlags: 0

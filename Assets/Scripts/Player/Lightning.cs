@@ -7,11 +7,16 @@ public class Lightning : MonoBehaviour
     public LayerMask enemyLayer; // Layer mask to filter enemies
     public float detectionInterval;
     GameObject Enemy;
+    public GameObject lightningPrefab;
+
 
     private void Start()
     {
         detectionRadius = GameManager.Instance.detectionRadius;
         detectionInterval = GameManager.Instance.detectionInterval;
+
+
+
 
         StartCoroutine(DetectAndDamageCoroutine());
     }
@@ -45,7 +50,20 @@ public class Lightning : MonoBehaviour
 
             if (closestEnemy != null)
             {
+                Quaternion rotation = Quaternion.Euler(90, 0, 0);
+                Transform aboveEnemy = closestEnemy.transform;
+                aboveEnemy.position = aboveEnemy.position + new Vector3(0,1,0);
+                GameObject lightningInstance = Instantiate(lightningPrefab, aboveEnemy.position, rotation);
+                ParticleSystem lightSys = lightningInstance.GetComponent<ParticleSystem>();
+
+                if (lightSys != null)
+                {
+                    lightSys.Play();
+
+                }
+
                 DealDamage(closestEnemy.gameObject);
+                Destroy(lightningInstance, lightSys.main.duration);
             }
         }
     }
